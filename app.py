@@ -6,14 +6,8 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 
 def animal_answer(input_message):
-    # 環境変数または Streamlit シークレットからAPI_KEYを取得
-    try:
-        api_key = st.secrets["openai"]["api_key"]
-    except:
-        api_key = None  # 環境変数から自動取得
-
+    # 環境変数からAPI_KEYを取得
     llm = ChatOpenAI(
-        api_key=api_key,
         model_name="gpt-4o-mini", 
         temperature=0
     )
@@ -27,14 +21,8 @@ def animal_answer(input_message):
     return result.content   
 
 def plant_answer(input_message):
-    # 環境変数または Streamlit シークレットからAPI_KEYを取得
-    try:
-        api_key = st.secrets["openai"]["api_key"]
-    except:
-        api_key = None  # 環境変数から自動取得
-
+    # 環境変数からAPI_KEYを取得
     llm = ChatOpenAI(
-        api_key=api_key,
         model_name="gpt-4o-mini", 
         temperature=0
     )
