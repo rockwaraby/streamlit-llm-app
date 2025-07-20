@@ -40,7 +40,7 @@ def plant_answer(input_message):
     )
 
     messages = [
-        SystemMessage(content="あなたは優秀な昆虫の専門家です。"),
+        SystemMessage(content="あなたは優秀な植物の専門家です。"),
         HumanMessage(content=input_message),
     ]
 
@@ -50,7 +50,7 @@ def plant_answer(input_message):
 def expert_answer(input_message, expert_type):
     if expert_type == "動物の専門家":
         answer = animal_answer(input_message)
-    elif expert_type == "昆虫の専門家":
+    elif expert_type == "植物の専門家":
         answer = plant_answer(input_message)
     else:
         return "専門家が見つかりません。"
@@ -61,12 +61,12 @@ def expert_answer(input_message, expert_type):
 
 st.write("##### 動作モード1: 動物の専門家")
 st.write("入力フォームにテキストを入力し、「実行」ボタンを押すことで動物の専門家が答えてくれます。")
-st.write("##### 動作モード2: 昆虫の専門家")
-st.write("入力フォームにテキストを入力し、「実行」ボタンを押すことで昆虫の専門家が答えてくれます。")
+st.write("##### 動作モード2: 植物の専門家")
+st.write("入力フォームにテキストを入力し、「実行」ボタンを押すことで植物の専門家が答えてくれます。")
 
 selected_item = st.radio(
     "動作モードを選択してください。",
-    ["動物の専門家", "昆虫の専門家"]
+    ["動物の専門家", "植物の専門家"]
 )
 
 st.divider()
@@ -75,7 +75,7 @@ if selected_item == "動物の専門家":
     input_message = st.text_input(label="動物に関する質問を入力してください。")
 
 else:
-    input_message = st.text_input(label="昆虫に関する質問を入力してください。")
+    input_message = st.text_input(label="植物に関する質問を入力してください。")
 
 if st.button("実行"):
     st.divider()
